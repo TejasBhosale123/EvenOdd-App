@@ -1,0 +1,65 @@
+<html>
+    <head>
+        <title> Even ODD Application</title>
+        <style>
+            *{
+                font-size: 50px;
+                font-family: 'Times New Roman', Times, serif;
+            }
+            body{
+                background-color: aqua;
+            }
+        </style>
+    </head>
+
+    <body>
+        <center>
+            <h1> Even Odd App </h1>
+            <form onsubmit="ChangeColor()">
+                <input type="number" placeholder="Enter An Integer" id="num"/><br/><br/>
+                <input type="submit" value="M1" />
+                <input type="submit" value= "M2" />
+                <input type="submit" value="M3" />
+
+            </form>
+            <h2 id="msg"></h2>
+            <script>
+                function ChangeColor(){
+                    event.preventDefault();
+                    let action = document.activeElement.value;
+                    let num = document.getElementById("num")
+                    let msg = document.getElementById("msg")
+                    let n = parseInt(num.value)
+
+                    if(action === "M1"){
+                        let ans = n % 2 === 0 ? "Even" : "Odd";
+                        msg.innerHTML= "M1-->" +ans
+                    }
+                    
+                    else if(action === "M2"){
+                        let ans = ""
+                        if (n%2===0){
+                            ans = "M2--> Even" 
+                        }
+                        else{
+                            ans = "M2--> Odd"
+                        }
+                        msg.innerHTML = ans;
+                    }
+                    
+                    else if(action === "M3"){
+                        switch(n%2){
+                            case 0 :
+                                msg.innerHTML = "M3--> Even"
+                                break;
+                            default:
+                                msg.innerHTML= "M3--> Odd"
+                            
+                        }
+                    }
+                    
+                }
+            </script>
+        </center>
+    </body>
+</html>
